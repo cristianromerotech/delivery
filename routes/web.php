@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TodosController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\DeliveryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,25 +13,13 @@ use App\Http\Controllers\CategoriesController;
 |
 */
 
-
-/* Route::get('/inicio', function () {
-    return view('app');
-});
-Route::get('/frase', function () {
-    return 'holaaaaa';
-});
-Route::get('/todos', function () {
-    return view('todos.index');
-}); */
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/todos', [TodosController::class, 'index'])->name('todos');
-Route::post('/todos', [TodosController::class, 'store'])->name('todos');
+Route::get('/delivery', [DeliveryController::class, 'index'])->name('delivery');
+Route::post('/delivery', [DeliveryController::class, 'store'])->name('delivery');
 
-Route::get('/todos/{id}', [TodosController::class, 'show'])->name('todos-edit');
-Route::patch('/todos/{id}', [TodosController::class, 'update'])->name('todos-update');
-Route::delete('/todos/{id}', [TodosController::class, 'destroy'])->name('todos-destroy');
-
-Route::resource('categories', CategoriesController::class);
+Route::get('/delivery/{id}', [DeliveryController::class, 'show'])->name('delivery-edit');
+Route::patch('/delivery/{id}', [DeliveryController::class, 'update'])->name('delivery-update');
+Route::delete('/delivery/{id}', [DeliveryController::class, 'destroy'])->name('delivery-destroy');
