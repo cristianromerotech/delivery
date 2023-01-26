@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Delivery;
+use App\Models\Trip;
 class DeliveryController extends Controller
 {
     /**
@@ -19,7 +19,7 @@ class DeliveryController extends Controller
             'money'=>'required|min:3'
         ]);
 
-        $delivery = new Delivery;
+        $delivery = new Trip;
         $delivery->origin = $request->origin;
         $delivery->destination = $request->destination;
         $delivery->money = $request->money;
@@ -29,7 +29,7 @@ class DeliveryController extends Controller
     }
 
     public function index(){
-        $delivery = Delivery::all();
+        $delivery = Trip::all();
         return view('delivery.index', ['deliveries'=>$delivery]);
     }
     
@@ -53,7 +53,7 @@ class DeliveryController extends Controller
      */
     public function show($id)
     {
-            $delivery = Delivery::find($id);
+            $delivery = Trip::find($id);
             return view('delivery.show', ['deliveries'=>$delivery]);
         
     }

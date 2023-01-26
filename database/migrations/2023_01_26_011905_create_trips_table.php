@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('origin');
             $table->string('destination');
             $table->string('money');
-            $table->string('weight');
-            $table->time('start_time');
-            $table->time('stop_time');
-            $table->string('height');
-            $table->string('width');
+            $table->string('weight')->nullable();
+            $table->time('start_time')->nullable();
+            $table->time('stop_time')->nullable();
+            $table->string('height')->nullable();
+            $table->string('width')->nullable();
             $table->timestamps();
         });
     }
