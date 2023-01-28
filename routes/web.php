@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,16 @@ use App\Http\Controllers\DeliveryController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login', function () {
+    return view('login.index');
+});
 
+
+ Route::post('/login', [LoginController::class, 'index'])->name('login');
+/* 
+Route::get('/login', function () {
+    return 'holaaaaa';
+}); */
 Route::get('/delivery', [DeliveryController::class, 'index'])->name('delivery');
 Route::post('/delivery', [DeliveryController::class, 'store'])->name('delivery');
 
