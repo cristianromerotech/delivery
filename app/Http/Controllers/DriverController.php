@@ -3,40 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-class LoginController extends Controller
+
+class DriverController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        /* $request->validate([
-            'title'=>'required|min:3'
-        ]); */
-
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $user = User::where('email', $email)->first();
-        $role = $request->input('role');
-        //dd($user);
-       
-
-        if ($user) {
-            if (($password == $user->password) && ($role == $user->rol_id)) {
-                return redirect()->route('delivery')->with('success', 'Login Successful');
-            } else {
-                //return view('delivery.index', ['delivery'=>$user]);
-                return redirect()->route('login')->with('error', 'Password incorrect');
-            }
-        } else {
-           // return view('delivery.index', ['delivery'=>$user]);
-           return redirect()->route('login')->with('error', 'Login Failed');
-        }
+        //
     }
-   
 
     /**
      * Show the form for creating a new resource.
